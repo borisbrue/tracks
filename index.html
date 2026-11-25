@@ -64,6 +64,7 @@ code{font:14.5px var(--mono);background:var(--rs);border:1px solid var(--ln);bor
 pre{font:14px/1.6 var(--mono);background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:18px 20px;overflow-x:auto;margin:18px 0 0;color:#cfccc6}
 pre .c{color:var(--dim)}
 .hw{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.hw.stack{grid-template-columns:minmax(0,1fr);margin-top:0}
 .hw .card h3{display:flex;align-items:center;gap:10px}
 .hw .dot{width:10px;height:10px;border-radius:3px;flex:none}
 .status{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
@@ -182,10 +183,14 @@ note 48 hold fxhold 1 echo
 note 49 hold fxhold 1 tapestop
 note 40 press transport</pre>
 </div>
-<div class="hw">
+<div class="split" style="margin-top:40px">
+<figure style="margin:0"><div class="shot"><img src="img/controller.jpg" width="1240" height="1492" loading="lazy" alt="The controller editor in the settings: a Launchpad mapping with its clip grid, the list of bindings, and the control being edited with learn, LED and target choosers."></div>
+<figcaption class="cap">The controller editor: grids, bindings and learn, all writing the same text file.</figcaption></figure>
+<div class="hw stack">
 <div class="card"><h3><span class="dot" style="background:var(--sig)"></span>Learn, don&rsquo;t type</h3><p>Switch on learn, move a knob, pick what it should do from a menu. The editor in the settings writes the file, and your comments in it stay where they are.</p></div>
 <div class="card"><h3><span class="dot" style="background:var(--play)"></span>Pad grids in one line</h3><p>Session, scenes, hot cues, loops, drum pads or steps, with LEDs for clip colours, playing and queued. The common pad numberings are built in.</p></div>
 <div class="card"><h3><span class="dot" style="background:var(--cue)"></span>Hold, toggle, shift</h3><p>Keys hold an effect, toggle a mute or fire any command. Shift and delete as modifiers, encoders as relative steps, several targets on one knob.</p></div>
+</div>
 </div>
 <p class="dim" style="margin-top:22px">Starting points ship with the app: Ableton Push&nbsp;1 (its own mode, with the display), Allen&nbsp;&amp;&nbsp;Heath Xone:K2 (mixer, synth and effects layouts), Novation Launchpad Mini MK3, Akai APC40 and APC Key&nbsp;25. Sync with other gear and apps through Ableton Link or MIDI clock, in and out.</p>
 </div></section>
