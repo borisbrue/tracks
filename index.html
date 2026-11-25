@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tracks. – a live instrument for electronic music</title>
-<meta name="description" content="tracks. is a live instrument for electronic music, built for the long, hypnotic forms of techno and house: whole tracks, loops, a drum rack and a synth, all on one clock, played from Ableton Push 1 and Allen &amp; Heath Xone:K2.">
+<meta name="description" content="tracks. is a live instrument for electronic music, built for the long, hypnotic forms of techno and house: whole tracks, loops, a drum rack and a synth, all on one clock, played from any MIDI controller.">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="img/icon.png">
 <style>
@@ -78,16 +78,16 @@ footer p{max-width:none}
 
 <header class="top"><div class="wrap">
 <a class="logo" href="#">tracks<b>.</b></a>
-<nav aria-label="Sections"><a href="#session">Session</a><a href="#tracks">Tracks</a><a href="#instruments">Instruments</a><a href="#effects">Effects</a><a href="#hardware">Hardware</a><a href="#inside">Inside</a></nav>
+<nav aria-label="Sections"><a href="#session">Session</a><a href="#tracks">Tracks</a><a href="#instruments">Instruments</a><a href="#effects">Effects</a><a href="#hardware">Controllers</a><a href="#inside">Inside</a></nav>
 </div></header>
 
 <main>
 <div class="wrap hero">
 <h1>A live instrument for electronic music<b>.</b></h1>
-<p class="lede">tracks. plays whole tracks, loops, a drum rack and a synth on one clock, and you play it from the hardware on your table: Ableton Push&nbsp;1 for clips and notes, an Allen&nbsp;&amp;&nbsp;Heath Xone:K2 as the mixer. You build a set the way a DJ would and change it the way a live act does. It is built for the long, hypnotic forms of techno and house.</p>
-<div class="pills"><span class="pill on">in development</span><span class="pill">macOS · Linux</span><span class="pill">iPad Pro in preparation</span><span class="pill">Ableton Link · MIDI clock</span></div>
+<p class="lede">tracks. plays whole tracks, loops, a drum rack and a synth on one clock, and you play it from whatever hardware is on your table: a pad grid for the clips, a fader box as the mixer, a keyboard for the synth. You build a set the way a DJ would and change it the way a live act does. It is built for the long, hypnotic forms of techno and house.</p>
+<div class="pills"><span class="pill on">in development</span><span class="pill">macOS · Linux</span><span class="pill">iPad Pro in preparation</span><span class="pill">any MIDI controller</span><span class="pill">Ableton Link · MIDI clock</span></div>
 <figure style="margin:0"><div class="shot"><video src="video/session.mp4" poster="video/session.jpg" width="1512" height="982" autoplay muted loop playsinline preload="metadata" aria-label="The session screen of tracks.: clips start on the next bar while two channels keep playing."></video></div>
-<figcaption class="cap">The session: tap once to pick a clip, again to start it on the next bar. Same grid as the Push.</figcaption></figure>
+<figcaption class="cap">The session: tap once to pick a clip, again to start it on the next bar. Same grid as on a pad controller.</figcaption></figure>
 </div>
 
 <section id="session"><div class="wrap split">
@@ -137,7 +137,7 @@ footer p{max-width:none}
 <div class="split" style="align-items:center">
 <div class="text">
 <h2>Effects you hold, not set</h2>
-<p>Hold a pad and the channel goes into an echo, a gate or a tape stop. Let go and everything is back where it was. The same effects sit on the touchscreen, on the Push pads and on the K2's keys, so one hand can end a track in an echo while the other starts the next one.</p>
+<p>Hold a pad and the channel goes into an echo, a gate or a tape stop. Let go and everything is back where it was. The same effects sit on the touchscreen and on any pad or key of your controller, so one hand can end a track in an echo while the other starts the next one.</p>
 <div class="views" aria-hidden="true"><span>Clips</span><span>Mix</span><span class="on">FX</span></div>
 <p class="dim">Clips shows the whole grid; Mix shows the eight strips with EQ, sends and a master column; FX shows the pads. The channel headers mark which effects are on, so you can see what the hardware is doing.</p>
 </div>
@@ -159,20 +159,41 @@ footer p{max-width:none}
 </div></section>
 
 <section id="hardware"><div class="wrap">
-<h2>Made for the hardware on the table</h2>
-<p>The screen is optional while you play. Everything the app does can be done from the controllers, and they all see the same selection.</p>
-<div class="hw">
-<div class="card"><h3><span class="dot" style="background:var(--sig)"></span>Ableton Push 1</h3><p>The session grid with clip colours, launch and stop; hot cues and loops; drum pads, keys, chords and melody steps; the arpeggiator; the FX pads; browsing and loading the library. The display shows parameters and clip names.</p></div>
-<div class="card"><h3><span class="dot" style="background:var(--play)"></span>Allen &amp; Heath Xone:K2</h3><p>A mixer that never changes under your hands: EQ with kills, the DJ filter on the encoders, faders, cue, play and an echo per channel, mapped from measured MIDI numbers. Its sound card carries master and cue.</p></div>
-<div class="card"><h3><span class="dot" style="background:var(--cue)"></span>Any MIDI controller</h3><p>Mappings are short text files: knobs, keys, encoders and whole pad grids in one line each. Learn mode and an editor in the settings build them without typing. Starting points for Launchpad Mini MK3, APC40 and APC Key 25 are included.</p></div>
+<div class="split">
+<div class="text">
+<h2>Bring your own controller</h2>
+<p>tracks. is not built around one device. Anything that sends MIDI notes or CCs can play it: pad grids, fader boxes, keyboards, DJ controllers. The screen is optional while you play.</p>
+<p>A mapping is a short text file with one line per control, and every line is a command the app already understands. So a controller can do whatever the screen can, and all of them share the same selection.</p>
 </div>
-<p class="dim" style="margin-top:22px">Sync with other gear and apps through Ableton Link or MIDI clock, in and out.</p>
+<pre aria-label="Example mapping"><span class="c"># my-controller.map</span>
+name   My controller
+device Controller   <span class="c"># part of the port name</span>
+
+<span class="c"># a whole clip grid in one line</span>
+pads session 8x8 note 36
+
+<span class="c"># faders and knobs</span>
+cc 16 gain 1
+cc 17 gain 2
+cc 4  fx 1 filter freq
+
+<span class="c"># hold a key, hold the effect</span>
+note 48 hold fxhold 1 echo
+note 49 hold fxhold 1 tapestop
+note 40 press transport</pre>
+</div>
+<div class="hw">
+<div class="card"><h3><span class="dot" style="background:var(--sig)"></span>Learn, don&rsquo;t type</h3><p>Switch on learn, move a knob, pick what it should do from a menu. The editor in the settings writes the file, and your comments in it stay where they are.</p></div>
+<div class="card"><h3><span class="dot" style="background:var(--play)"></span>Pad grids in one line</h3><p>Session, scenes, hot cues, loops, drum pads or steps, with LEDs for clip colours, playing and queued. The common pad numberings are built in.</p></div>
+<div class="card"><h3><span class="dot" style="background:var(--cue)"></span>Hold, toggle, shift</h3><p>Keys hold an effect, toggle a mute or fire any command. Shift and delete as modifiers, encoders as relative steps, several targets on one knob.</p></div>
+</div>
+<p class="dim" style="margin-top:22px">Starting points ship with the app: Ableton Push&nbsp;1 (its own mode, with the display), Allen&nbsp;&amp;&nbsp;Heath Xone:K2 (mixer, synth and effects layouts), Novation Launchpad Mini MK3, Akai APC40 and APC Key&nbsp;25. Sync with other gear and apps through Ableton Link or MIDI clock, in and out.</p>
 </div></section>
 
 <section id="inside"><div class="wrap split">
 <div class="text">
 <h2>One language for everything</h2>
-<p>Under the screen is a real-time engine in C++20 that never allocates or waits on the audio thread. On top of it sits a small text language. The screen, the Push, the K2 and saved sessions all speak it, so everything that can be done can be typed, mapped and saved.</p>
+<p>Under the screen is a real-time engine in C++20 that never allocates or waits on the audio thread. On top of it sits a small text language. The screen, every controller mapping and saved sessions all speak it, so everything that can be done can be typed, mapped and saved.</p>
 <p class="dim">A session is a script of these lines, and a reloaded session comes back exactly as it was saved. The engine is covered by a couple of hundred tests, including allocation checks on the audio path.</p>
 </div>
 <pre aria-label="Example session lines"><span class="c"># a channel with a drum rack and a pattern</span>
@@ -201,7 +222,7 @@ fxhold 2 echo off</pre>
 <ul class="facts" style="margin-top:6px">
 <li>Runs on macOS and Linux; target is the M1 iPad Pro.</li>
 <li>Built with JUCE and Ableton Link; license to be decided.</li>
-<li>Controllers: Push 1 and Xone:K2 first, others through mappings.</li>
+<li>Controllers: any MIDI controller through mappings; the Push&nbsp;1 also has its own mode.</li>
 </ul>
 </div>
 </div>
@@ -210,7 +231,7 @@ fxhold 2 echo off</pre>
 
 <footer><div class="wrap">
 <p><b style="color:var(--ink)">tracks<span style="color:var(--sig)">.</span></b> · a project by <a href="https://github.com/borisbrue">borisbrue</a> · screenshots from the app, rendered with its demo session.</p>
-<p>Ableton, Push and Link are trademarks of Ableton AG. Allen &amp; Heath and Xone are trademarks of Allen &amp; Heath Ltd. Launchpad is a trademark of Focusrite, APC of inMusic Brands. tracks. is an independent project and not affiliated with any of them.</p>
+<p>Ableton, Push and Link are trademarks of Ableton AG. Allen &amp; Heath and Xone are trademarks of Allen &amp; Heath Ltd. Novation and Launchpad are trademarks of Focusrite, Akai and APC of inMusic Brands. tracks. is an independent project and not affiliated with any of them.</p>
 </div></footer>
 <script>
 if (matchMedia('(prefers-reduced-motion: reduce)').matches)
