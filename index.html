@@ -17,7 +17,8 @@
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
 a{color:var(--ink);text-decoration-color:var(--sig);text-underline-offset:3px}
-img{max-width:100%;height:auto;display:block}
+img,video{max-width:100%;height:auto;display:block}
+.shot video{width:100%}
 .wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
 header.top{position:sticky;top:0;z-index:10;background:rgba(17,18,20,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
 header.top .wrap{display:flex;align-items:center;gap:18px;height:56px}
@@ -85,8 +86,8 @@ footer p{max-width:none}
 <h1>A live instrument for electronic music<b>.</b></h1>
 <p class="lede">tracks. plays whole tracks, loops, a drum rack and a synth on one clock, and you play it from the hardware on your table: Ableton Push&nbsp;1 for clips and notes, an Allen&nbsp;&amp;&nbsp;Heath Xone:K2 as the mixer. You build a set the way a DJ would and change it the way a live act does. It is built for the long, hypnotic forms of techno and house.</p>
 <div class="pills"><span class="pill on">in development</span><span class="pill">macOS · Linux</span><span class="pill">iPad Pro in preparation</span><span class="pill">Ableton Link · MIDI clock</span></div>
-<figure style="margin:0"><div class="shot"><img src="img/session.jpg" width="1800" height="1169" alt="The session screen of tracks.: eight channels of clip slots, the waveform of the selected clip with hot cues, the clip strip with cues and loop lengths."></div>
-<figcaption class="cap">The session: eight channels, sixteen slots each, the same grid the Push shows.</figcaption></figure>
+<figure style="margin:0"><div class="shot"><video src="video/session.mp4" poster="video/session.jpg" width="1512" height="982" autoplay muted loop playsinline preload="metadata" aria-label="The session screen of tracks.: clips start on the next bar while two channels keep playing."></video></div>
+<figcaption class="cap">The session: tap once to pick a clip, again to start it on the next bar. Same grid as the Push.</figcaption></figure>
 </div>
 
 <section id="session"><div class="wrap split">
@@ -121,7 +122,7 @@ footer p{max-width:none}
 <h2>Drums, notes and a synth of its own</h2>
 <p>A channel can carry a drum rack, a sampler or drift, the synth that comes with tracks. Patterns and melodies are clips like any other: they launch, loop and stop on the same grid.</p>
 <div class="pair">
-<figure style="margin:0"><div class="shot"><img src="img/drums.jpg" width="1800" height="1169" loading="lazy" alt="The drum rack: sixteen pads, the picked pad's sound and sample, and a step sequencer with eight lanes."></div>
+<figure style="margin:0"><div class="shot"><video src="video/drums.mp4" poster="video/drums.jpg" width="1512" height="982" autoplay muted loop playsinline preload="metadata" aria-label="The drum rack: steps are tapped in and out while the pattern plays, pads are hit live."></video></div>
 <figcaption class="cap">Drum rack: sixteen pads, built-in kits, steps with velocity, length, chance and ratchet.</figcaption></figure>
 <figure style="margin:0"><div class="shot"><img src="img/keys-arp.jpg" width="1800" height="1169" loading="lazy" alt="The piano roll in A minor with chords, and the arpeggiator panel previewing its notes over the clip."></div>
 <figcaption class="cap">Notes in key, as steps or in a piano roll, with an arpeggiator that previews what it plays.</figcaption></figure>
@@ -140,7 +141,7 @@ footer p{max-width:none}
 <div class="views" aria-hidden="true"><span>Clips</span><span>Mix</span><span class="on">FX</span></div>
 <p class="dim">Clips shows the whole grid; Mix shows the eight strips with EQ, sends and a master column; FX shows the pads. The channel headers mark which effects are on, so you can see what the hardware is doing.</p>
 </div>
-<figure style="margin:0"><div class="shot"><img src="img/session-fx.jpg" width="1800" height="1169" loading="lazy" alt="The FX view: eight columns of effect pads, five of them held, and an XY field for the master filter."></div>
+<figure style="margin:0"><div class="shot"><video src="video/fx.mp4" poster="video/fx.jpg" width="1512" height="982" autoplay muted loop playsinline preload="metadata" aria-label="The FX view: fingers hold echo, gate, flanger, tape stop, roll and crush on different channels."></video></div>
 <figcaption class="cap">FX view: hold to play, double-tap to latch, and an XY field for the master filter.</figcaption></figure>
 </div>
 <div class="fx">
@@ -211,5 +212,9 @@ fxhold 2 echo off</pre>
 <p><b style="color:var(--ink)">tracks<span style="color:var(--sig)">.</span></b> · a project by <a href="https://github.com/borisbrue">borisbrue</a> · screenshots from the app, rendered with its demo session.</p>
 <p>Ableton, Push and Link are trademarks of Ableton AG. Allen &amp; Heath and Xone are trademarks of Allen &amp; Heath Ltd. Launchpad is a trademark of Focusrite, APC of inMusic Brands. tracks. is an independent project and not affiliated with any of them.</p>
 </div></footer>
+<script>
+if (matchMedia('(prefers-reduced-motion: reduce)').matches)
+  document.querySelectorAll('video[autoplay]').forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+</script>
 </body>
 </html>
