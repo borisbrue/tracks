@@ -79,7 +79,7 @@ footer p{max-width:none}
 
 <header class="top"><div class="wrap">
 <a class="logo" href="#">tracks<b>.</b></a>
-<nav aria-label="Sections"><a href="#session">Session</a><a href="#tracks">Tracks</a><a href="#instruments">Instruments</a><a href="#effects">Effects</a><a href="#hardware">Controllers</a><a href="#inside">Inside</a></nav>
+<nav aria-label="Sections"><a href="#session">Session</a><a href="#prepare">Prepare</a><a href="#tracks">Library</a><a href="#instruments">Instruments</a><a href="#effects">Effects</a><a href="#hardware">Controllers</a><a href="#inside">Inside</a></nav>
 </div></header>
 
 <main>
@@ -88,50 +88,70 @@ footer p{max-width:none}
 <p class="lede">tracks. plays whole tracks, loops, a drum rack and a synth on one clock, and you play it from whatever hardware is on your table: a pad grid for the clips, a fader box as the mixer, a keyboard for the synth. You build a set the way a DJ would and change it the way a live act does. It is built for the long, hypnotic forms of techno and house.</p>
 <div class="pills"><span class="pill on">in development</span><span class="pill">macOS · Linux</span><span class="pill">iPad Pro in preparation</span><span class="pill">any MIDI controller</span><span class="pill">Ableton Link · MIDI clock</span></div>
 <figure style="margin:0"><div class="shot"><video src="video/session.mp4" poster="video/session.jpg" width="1512" height="982" autoplay muted loop playsinline preload="metadata" aria-label="The session screen of tracks.: clips start on the next bar while two channels keep playing."></video></div>
-<figcaption class="cap">The session: tap once to pick a clip, again to start it on the next bar. Same grid as on a pad controller.</figcaption></figure>
+<figcaption class="cap">The session: clips start on the next bar, two channels keep playing. Same grid as on a pad controller.</figcaption></figure>
 </div>
 
 <section id="session"><div class="wrap split">
 <div class="text">
 <h2>Launch on the beat, not near it</h2>
-<p>The first press picks a slot, the second one starts it on the next bar or beat, whatever the launch quantum says. Two separate presses rather than a double click: only that way does the start land exactly where you mean it.</p>
+<p>The session is home. There are no tabs to switch between: the grid, the mixer and the effects are three views of the same place, and a clip or the library opens on top of it and closes again with Esc.</p>
+<p>Every slot has two zones. The square &#9654; on its left starts or stops the clip on the next bar or beat, whatever the launch quantum says, in one press you can put on the beat. The rest of the slot picks the clip, a double click opens it.</p>
 <ul class="facts">
-<li>Eight hot cues and eight saved loops per clip, live loops from a quarter beat to eight bars, beat jumps that keep the phase.</li>
-<li>Capture a running loop into a new slot, rearrange the grid by dragging, take back clip edits with Cmd+Z.</li>
-<li>Space runs the transport, Enter launches the picked clip.</li>
+<li>Colours say what a clip is: a track is orange and turns green while it plays, filling up to the playhead with the time left below it; loops are yellow and turn turquoise; drum patterns and note clips have their own pairs. The Push uses the same colours.</li>
+<li>Sixteen slots per channel, a live loop from a quarter bar to eight bars, beat jumps that keep the phase, a capture button that turns the running loop into a new clip.</li>
+<li>Drag slots onto each other to rearrange the grid. Space runs the transport, Enter launches the picked clip, Cmd+Z takes back clip edits.</li>
 </ul>
 </div>
-<figure style="margin:0"><div class="shot"><img src="img/clip.jpg" width="1800" height="1169" loading="lazy" alt="The warp editor: a kick loop with warp markers, saved loops and hot cues on their own lanes."></div>
-<figcaption class="cap">The warp editor: markers, transients, saved loops and cues on their own lanes.</figcaption></figure>
+<figure style="margin:0"><div class="shot"><img src="img/session.jpg" width="1800" height="1169" loading="lazy" alt="The session grid: eight channels with loops, drum patterns and note clips in their colours, the picked clip with eight cue pads and its waveform below."></div>
+<figcaption class="cap">Clips view: the grid, and below it the picked clip with its pads and waveform.</figcaption></figure>
 </div></section>
 
-<section id="tracks"><div class="wrap split rev">
+<section id="prepare"><div class="wrap split rev">
+<div class="text">
+<h2>Prepare a track, then play it</h2>
+<p>A whole track is not a loop. It plays from its start marker to the end and then stops, like a record. Anything up to sixteen bars, or what the analysis recognises as a loop, keeps going round. The clip editor is where you get a track ready for a set.</p>
+<div class="views" aria-hidden="true"><span class="on">Prepare</span><span>Grid</span></div>
+<ul class="facts">
+<li><b>Cues and loops on eight pads.</b> An empty pad saves the cue or the loop you just drew; a full one jumps there or switches the loop on. <b>Auto</b> suggests hot cues from the track.</li>
+<li><b>Loops inside the track.</b> Draw one straight into the waveform. A loop ahead of the playhead waits until the track runs into it; saved loops (blue) can be moved and resized in the editor. In <b>loop mode</b> the track runs into each saved loop it reaches and turns there until you let it go on.</li>
+<li><b>The intro is part of it.</b> The start marker may sit before the one, so a track plays its intro and still lands on the beat. Right-click a transient and choose <b>Set 1</b> to say where the one is.</li>
+<li>Click into the waveform of a playing track to jump there, on the bar. Warp markers, the grid and the warp mode live behind <b>Grid</b>, and every edit can be undone.</li>
+</ul>
+</div>
+<figure style="margin:0"><div class="shot"><img src="img/clip.jpg" width="1800" height="1169" loading="lazy" alt="The clip editor in Prepare mode: a kick loop with two saved loops in blue, a running loop in turquoise, hot cues, warp markers on the waveform and eight loop pads above."></div>
+<figcaption class="cap">The clip editor: saved loops in blue, the running one in turquoise, cues in yellow. Above it, what every channel plays; a click switches over.</figcaption></figure>
+</div></section>
+
+<section id="tracks"><div class="wrap split">
 <div class="text">
 <h2>Your library, in time and in key</h2>
 <p>Every track is analysed once: tempo, beat grid, downbeat, transients, key in Camelot notation and an energy curve. Then it plays in time with everything else, repitched, beat-sliced or stretched.</p>
 <ul class="facts">
 <li><b>Next</b> suggests what fits after the playing track: matching key, close tempo, and a step down, level or up in energy.</li>
+<li>The library slides in from the right over the session, which stays where it is and keeps playing. Load a track and it slides out again. For sorting and crates it also opens over the whole window.</li>
 <li>Crates, grouping by genre, artist, key or tempo, and a player that prelistens on the cue output.</li>
 <li>Stems: split a track into drums, bass, other and vocals (on the desktop), and switch them per channel while it plays.</li>
 </ul>
 </div>
-<figure style="margin:0"><div class="shot"><img src="img/library.jpg" width="1800" height="1169" loading="lazy" alt="The library: tracks grouped into tracks and loops, with energy curves, BPM, key and length, crates on the left and the player at the bottom."></div>
-<figcaption class="cap">The library with energy, BPM and key, crates on the left, the player below.</figcaption></figure>
+<figure style="margin:0"><div class="shot"><img src="img/library.jpg" width="1800" height="1169" loading="lazy" alt="The library as a panel over the session: tracks and loops with energy curves, BPM, key and length, crates on the left and the player at the bottom; the mixer stays visible on the left."></div>
+<figcaption class="cap">The library slid in over the session: energy, BPM and key, crates, the player below.</figcaption></figure>
 </div></section>
 
 <section id="instruments"><div class="wrap">
 <h2>Drums, notes and a synth of its own</h2>
 <p>A channel can carry a drum rack, a sampler or drift, the synth that comes with tracks. Patterns and melodies are clips like any other: they launch, loop and stop on the same grid.</p>
+<p>Every instrument page has the same head: <b>Notes | drift | Arp</b> (or Sampler in the middle) in the same place, and the launch button next to it. Notes come as steps or in a piano roll, and each note can have a chance and a ratchet, like a drum step.</p>
 <div class="pair">
 <figure style="margin:0"><div class="shot"><video src="video/drums.mp4" poster="video/drums.jpg" width="1512" height="982" autoplay muted loop playsinline preload="metadata" aria-label="The drum rack: steps are tapped in and out while the pattern plays, pads are hit live."></video></div>
 <figcaption class="cap">Drum rack: sixteen pads, built-in kits, steps with velocity, length, chance and ratchet.</figcaption></figure>
-<figure style="margin:0"><div class="shot"><img src="img/keys-arp.jpg" width="1800" height="1169" loading="lazy" alt="The piano roll in A minor with chords, and the arpeggiator panel previewing its notes over the clip."></div>
-<figcaption class="cap">Notes in key, as steps or in a piano roll, with an arpeggiator that previews what it plays.</figcaption></figure>
+<figure style="margin:0"><div class="shot"><img src="img/keys-arp.jpg" width="1800" height="1169" loading="lazy" alt="The piano roll in A minor with a chord lane, and the arpeggiator panel previewing its notes over the clip."></div>
+<figcaption class="cap">Notes in key, as steps or in a piano roll, and an arpeggiator that previews what it plays and writes it into a new clip.</figcaption></figure>
 <figure style="margin:0"><div class="shot"><img src="img/drift.jpg" width="1800" height="1169" loading="lazy" alt="drift, the synth: two oscillators with their waveforms, sub, noise and a live oscilloscope."></div>
-<figcaption class="cap">drift: wavetable oscillators, filters, envelopes, a 16-slot mod matrix and a scope of what really sounds.</figcaption></figure>
-<figure style="margin:0"><div class="shot"><img src="img/sampler.jpg" width="1800" height="1169" loading="lazy" alt="The sampler: a sample with its play range and sustain loop, envelope and tone knobs, and a keyboard."></div>
-<figcaption class="cap">Sampler: play range, crossfaded sustain loop, reverse, and the computer keyboard as a piano.</figcaption></figure>
+<figcaption class="cap">drift: wavetable oscillators, filters, envelopes, a 16-slot mod matrix and a scope of what really sounds. Step through the presets with &lsaquo; &rsaquo;; a knob turn reaches notes that already sound.</figcaption></figure>
+<figure style="margin:0"><div class="shot"><img src="img/sampler.jpg" width="1800" height="1169" loading="lazy" alt="The sampler with three samples: the waveform of the picked one with its sustain loop, envelope and tone knobs, and coloured bands over the keyboard showing which sample plays where."></div>
+<figcaption class="cap">Sampler: several samples, each from its own root key up to the next; play range, crossfaded sustain loop, reverse, and the computer keyboard as a piano.</figcaption></figure>
 </div>
+<p class="dim" style="margin-top:28px">Loops become instruments, too: slice one onto the sixteen pads of a new drum rack, with a pattern that plays it as before, so you can rearrange its hits. Or hand it to the sampler and play it in key.</p>
 </div></section>
 
 <section id="effects"><div class="wrap">
@@ -140,7 +160,7 @@ footer p{max-width:none}
 <h2>Effects you hold, not set</h2>
 <p>Hold a pad and the channel goes into an echo, a gate or a tape stop. Let go and everything is back where it was. The same effects sit on the touchscreen and on any pad or key of your controller, so one hand can end a track in an echo while the other starts the next one.</p>
 <div class="views" aria-hidden="true"><span>Clips</span><span>Mix</span><span class="on">FX</span></div>
-<p class="dim">Clips shows the whole grid; Mix shows the eight strips with EQ, sends and a master column; FX shows the pads. The channel headers mark which effects are on, so you can see what the hardware is doing.</p>
+<p class="dim">Clips shows the whole grid; Mix shows the eight strips with EQ, sends and a master column; FX shows the pads. Mix and FX keep a row with the running clips, the pads and the waveform, so you can play a whole set from either. The channel headers mark which effects are on, so you can see what the hardware is doing.</p>
 </div>
 <figure style="margin:0"><div class="shot"><video src="video/fx.mp4" poster="video/fx.jpg" width="1512" height="982" autoplay muted loop playsinline preload="metadata" aria-label="The FX view: fingers hold echo, gate, flanger, tape stop, roll and crush on different channels."></video></div>
 <figcaption class="cap">FX view: hold to play, double-tap to latch, and an XY field for the master filter.</figcaption></figure>
@@ -155,8 +175,8 @@ footer p{max-width:none}
 <div class="held"><b>Gate</b><span>chops in 1/8, 1/16 or 1/32, on the grid</span></div>
 <div><b>Tape stop</b><span>brakes to a halt, let go and it is back on the beat</span></div>
 </div>
-<figure style="margin:28px 0 0"><div class="shot"><img src="img/session-mix.jpg" width="1800" height="1169" loading="lazy" alt="The mix view: eight channel strips with four-band EQ, cuts, delay and reverb sends, crush, filter and faders, and a master column."></div>
-<figcaption class="cap">Mix view: four-band EQ with kills, low and high cut, sends to the ping-pong delay and the plate reverb, and the master.</figcaption></figure>
+<figure style="margin:28px 0 0"><div class="shot"><img src="img/session-mix.jpg" width="1800" height="1169" loading="lazy" alt="The mix view: the running clips and a waveform on top, eight channel strips with four-band EQ, delay and reverb sends, crush, stems or cuts, filter and faders, and a master column."></div>
+<figcaption class="cap">Mix view: four-band EQ with kills, sends to the ping-pong delay and the plate reverb, stem switches on tracks, low and high cut on instruments, and the master.</figcaption></figure>
 </div></section>
 
 <section id="hardware"><div class="wrap">
@@ -200,6 +220,7 @@ note 40 press transport</pre>
 <h2>One language for everything</h2>
 <p>Under the screen is a real-time engine in C++20 that never allocates or waits on the audio thread. On top of it sits a small text language. The screen, every controller mapping and saved sessions all speak it, so everything that can be done can be typed, mapped and saved.</p>
 <p class="dim">A session is a script of these lines, and a reloaded session comes back exactly as it was saved. The engine is covered by a couple of hundred tests, including allocation checks on the audio path.</p>
+<p>The same language is open to other programs. Switched on in the settings, tracks. listens on a local socket, and <code>tracks --mcp</code> makes it an MCP server, so a language model can read the session, build patterns and design sounds with you, and render a preview to listen to. Anything that writes files or replaces the session stays with you.</p>
 </div>
 <pre aria-label="Example session lines"><span class="c"># a channel with a drum rack and a pattern</span>
 rack 1 demo hard
