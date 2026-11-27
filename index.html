@@ -79,7 +79,7 @@ footer p{max-width:none}
 
 <header class="top"><div class="wrap">
 <a class="logo" href="#">tracks<b>.</b></a>
-<nav aria-label="Sections"><a href="#session">Session</a><a href="#prepare">Prepare</a><a href="#tracks">Library</a><a href="#instruments">Instruments</a><a href="#effects">Effects</a><a href="#hardware">Controllers</a><a href="#inside">Inside</a></nav>
+<nav aria-label="Sections"><a href="#session">Session</a><a href="#prepare">Prepare</a><a href="#tracks">Library</a><a href="#instruments">Instruments</a><a href="#effects">Effects</a><a href="#hardware">Controllers</a><a href="#partner">Partner</a><a href="#inside">Inside</a></nav>
 </div></header>
 
 <main>
@@ -216,12 +216,44 @@ note 40 press transport</pre>
 <p class="dim" style="margin-top:22px">Starting points ship with the app: Ableton Push&nbsp;1 (its own mode, with the display), Allen&nbsp;&amp;&nbsp;Heath Xone:K2 (mixer, synth and effects layouts), Novation Launchpad Mini MK3, Akai APC40 and APC Key&nbsp;25. Sync with other gear and apps through MIDI clock, in and out.</p>
 </div></section>
 
+<section id="partner"><div class="wrap">
+<div class="split">
+<div class="text">
+<h2>A back-to-back partner</h2>
+<p>Connect a language model to tracks. and you have someone next to you who knows the app inside out. Claude, Gemini or Codex, any client that speaks MCP will do. It works the way you do: through the same lines the screen and your controller send.</p>
+<p>Tell it what you want, the way you would tell a friend at the decks. &ldquo;A rolling bass under the track on deck two, leave some air in bar four.&rdquo; It reads the key of the track, builds the sound, writes the clip and reads it back before you hear it. You listen and say what to change.</p>
+<p class="dim">It does not listen to the room and it does not mix for you. It takes the work you would rather not do with one hand on a fader.</p>
+</div>
+<pre aria-label="Example: what the model sends for a bassline"><span class="c"># you: a rolling bass under deck 2, A minor,</span>
+<span class="c">#      leave some air in bar 4</span>
+drift 3 new reese
+key 3 from 2
+midi 3 1 4
+addnote 3 1 0.5 0.25 A1 0.9
+addnote 3 1 0.75 0.25 A2 0.6
+addnote 3 1 1.5 0.25 C2 0.8
+<span class="c"># ...</span>
+
+<span class="c"># then it reads the clip back:</span>
+<span class="c"># 14 notes, all in A minor, offbeats,</span>
+<span class="c"># bar 4 rests after the first beat</span></pre>
+</div>
+<div class="grid3">
+<div class="card"><h3>Bass lines that fit</h3><p>Rolling, sparse, driving: it writes notes in the key of what is playing, as a clip you can launch, edit or undo like any other.</p></div>
+<div class="card"><h3>Sounds from a reference</h3><p>Give it a single note from a track. It measures bands, envelope and brightness, picks the closest drift preset and turns the knobs until the numbers line up. Your ears have the last word.</p></div>
+<div class="card"><h3>Patterns</h3><p>Drum patterns and melody steps, with chance and ratchet where they help. It checks the step grid and the key before it hands them over.</p></div>
+<div class="card"><h3>FX chains</h3><p>It sets up the four FX channels, sends the right channels through them and saves snapshots for the break, ready on your pads.</p></div>
+<div class="card"><h3>Hear it first</h3><p>It can render a few bars to a file without touching the running set, so you can check an idea on headphones before it goes out.</p></div>
+<div class="card"><h3>You stay in charge</h3><p>External control is off until you switch it on. Every line it sends shows in the status bar, undo works as always, and saving, opening sessions or writing files stays with you.</p></div>
+</div>
+</div></section>
+
 <section id="inside"><div class="wrap split">
 <div class="text">
 <h2>One language for everything</h2>
 <p>Under the screen is a real-time engine in C++20 that never allocates or waits on the audio thread. On top of it sits a small text language. The screen, every controller mapping and saved sessions all speak it, so everything that can be done can be typed, mapped and saved.</p>
 <p class="dim">A session is a script of these lines, and a reloaded session comes back exactly as it was saved. The engine is covered by a couple of hundred tests, including allocation checks on the audio path.</p>
-<p>The same language is open to other programs. Switched on in the settings, tracks. listens on a local socket, and <code>tracks --mcp</code> makes it an MCP server, so a language model can read the session, build patterns and design sounds with you, and render a preview to listen to. Anything that writes files or replaces the session stays with you.</p>
+<p>The same language is open to other programs. Switched on in the settings, tracks. listens on a local socket, and <code>tracks --mcp</code> makes it an MCP server for the partner above. It runs on your machine. The app has no chat and no account built in; the model lives in the client you pick.</p>
 </div>
 <pre aria-label="Example session lines"><span class="c"># a channel with a drum rack and a pattern</span>
 rack 1 demo hard
